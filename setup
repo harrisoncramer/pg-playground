@@ -7,14 +7,21 @@ echo "" > ./import.sql
 echo "Generating Tables..."
 for file in data/*; do
 
+  echo "${file} processing..."
+
   filename=$(basename "${file}")
   filename_no_extension="${filename%%.*}"
 
-  echo "${filename} processing..."
-  csvsql "$file" >> ./import.sql
+  sql_table_name=$(echo "$filename_no_extension" | awk '{ print tolower($0); }')
 
+  if [ ! "$sql_table_name" = "${filename_no_extension}" ]; then
+    mv "$file" "./data/${sql_table_name}.csv"
+    echo "Renamed ${file} to ${sql_table_name}.csv"
+  fi
 
-  echo "COPY \"$filename_no_extension\" FROM '/usr/app/data/$filename' HEADER csv;" >> ./import.sql
+  csvsql --no-doublequote "./data/$sql_table_name.csv" >> ./import.sql
+
+  echo "COPY ${sql_table_name} FROM '/usr/app/data/$sql_table_name.csv' HEADER csv;" >> ./import.sql
   echo "${filename} done."
 
 done
