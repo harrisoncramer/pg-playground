@@ -1,0 +1,22 @@
+#!/bin/bash
+# This script will automatically generate schemas using csvsql from the csv files in the data folder
+
+echo "Clearing old tables..."
+echo "" > ./import.sql
+
+echo "Generating Tables..."
+for file in data/*; do
+
+  filename=$(basename "${file}")
+  filename_no_extension="${filename%%.*}"
+
+  echo "${filename} processing..."
+  csvsql "$file" >> ./import.sql
+
+
+  echo "COPY \"$filename_no_extension\" FROM '/usr/app/data/$filename' HEADER csv;" >> ./import.sql
+  echo "${filename} done."
+
+done
+
+echo "Done"

@@ -1,0 +1,6 @@
+#!/bin/bash
+if hash pgcli 2>/dev/null; then
+    LESS="-S" PGPASSWORD=postgres pgcli --host localhost --port 5432 --username postgres --dbname postgres
+  else
+    "Try installing pgcli in order to connect to the DB. Or connect manually to the docker container with psql."
+fi
