@@ -1,4 +1,4 @@
-# PostgreSQL Playground 🎉
+# PSQL Playground
 
 This repository is meant to be an easy-to-setup, dockerized PostgreSQL database playground that you can easily run locally.
 
