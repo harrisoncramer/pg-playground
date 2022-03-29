@@ -8,9 +8,9 @@ The data included here is baseball data from Sean Lahman's <a href="https://www.
 
 # Requirements
 
-1. docker and docker compose
-2. csvkit
-3. pgcli
+1. <a href="https://docs.docker.com/engine/install/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker compose</a>
+2. <a href="https://csvkit.readthedocs.io/en/latest/">csvkit</a>
+3. <a href="https://www.pgcli.com/install">pgcli</a>
 
 # Instructions
 
