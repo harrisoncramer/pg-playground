@@ -1,8 +1,6 @@
 # PG Playground
 
-This repository is meant to be an easy-to-setup, dockerized PostgreSQL database playground that you can easily run locally.
-
-It works by converting your CSV files into Schemas and Tables automatically, and then importing the CSV data into PostgreSQL.
+This repository is meant to be an easy-to-setup, dockerized PostgreSQL database playground that you can easily run locally. It works by converting your CSV files into tables automatically, and then importing the CSV data into PostgreSQL.
 
 The data included here is baseball data from Sean Lahman's <a href="https://www.seanlahman.com/baseball-archive/statistics/">site</a>.
 
